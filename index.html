@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Resume Generator</h1>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <form id="resumeForm">
+                    <section class="form-section">
+                        <h2>Personal Information</h2>
+                        <div class="input-group">
+                            <input type="text" id="fullName" placeholder="Full Name" required>
+                            <input type="email" id="email" placeholder="Email" required>
+                            <input type="tel" id="phone" placeholder="Phone" required>
+                            <input type="text" id="location" placeholder="Location" required>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Education</h2>
+                        <div id="educationList">
+                            <div class="education-entry">
+                                <input type="text" placeholder="Degree" class="degree" required>
+                                <input type="text" placeholder="School" class="school" required>
+                                <input type="text" placeholder="Graduation Year" class="year" required>
+                                <button type="button" class="remove-btn" onclick="removeEducation(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" onclick="addEducation()">Add Education</button>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Experience</h2>
+                        <div id="experienceList">
+                            <div class="experience-entry">
+                                <input type="text" placeholder="Job Title" class="title" required>
+                                <input type="text" placeholder="Company" class="company" required>
+                                <input type="text" placeholder="Location" class="location" required>
+                                <div class="date-range">
+                                    <input type="text" placeholder="Start Date" class="start-date" required>
+                                    <input type="text" placeholder="End Date" class="end-date" required>
+                                </div>
+                                <textarea placeholder="Job Description" class="description" required></textarea>
+                                <button type="button" class="remove-btn" onclick="removeExperience(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" onclick="addExperience()">Add Experience</button>
+                    </section>
+
+                    <section class="form-section">
+                        <h2>Skills</h2>
+                        <textarea id="skills" placeholder="Enter skills (comma-separated)" required></textarea>
+                    </section>
+                </form>
+            </div>
+
+            <div class="preview-container">
+                <button id="downloadBtn" class="download-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download PDF
+                </button>
+                <div id="resumePreview" class="resume-preview"></div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
